@@ -1,0 +1,168 @@
+BODY {
+      background-color: white;
+      color : #000088;
+      font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+      margin: 0px; 
+      line-height: 110%;     
+      font-size    : 8pt;
+ }
+      
+.Value {
+        color: black;      
+        font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+        line-height : 110%;  /*line-height set to 110% in order to*/
+        width: auto;
+        font-size    : 8pt;
+        font-weight  : bold;
+        padding-right:10px;
+ }                  
+
+.Prompt {
+         font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+         line-height : 110%; /*line-height set to 110% in order to*/
+         font-size    : 8pt;
+         color: red;
+         padding-right:5px;
+ }                  
+
+.Header {
+         font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+         color: white;
+         background-color :#191970;
+         text-align: center;
+ }                  
+
+.Subheader {
+         font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+         color: black;
+         padding-top:10px;
+         padding-bottom:10px;
+         text-align: center;
+ }                  
+
+.InfoStatement {
+         font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+         font-style: italic;
+         color: black;
+         padding-top:5px;
+         padding-bottom:5px;
+         text-align: center;
+ }                  
+
+.InfoChargeStatement {
+            font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+            font-style: italic;
+            color: red;
+            padding-top:5px;
+            padding-bottom:5px;
+            padding-left:20px;
+
+
+ }                  
+
+
+.BodyWindow {
+             background-color :#D3D3D3;
+             font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+             margin: 0px; 
+             line-height: 150%;  
+             width:630px; 
+            
+border-width: thin;  
+             border: thin  solid #191970;
+            
+ margin-left: 2%;
+             margin-top: 1em;
+              font-size    : 8pt;
+
+
+}
+
+.AltBodyWindow1 {
+             background-color :#E1E1E1;
+             font-family : Verdana, Geneva, Arial, Helvetica, sans-serif; 
+             margin-left: 1%;
+             margin-right: 1%;
+
+
+             
+             width:605px; 
+             border-width: thin;  
+             border: thin  solid #191970;
+             
+             font-size    : 8pt;
+
+
+
+}
+
+.BodyWindowDcCivil {
+             background-color :#D3D3D3;
+             font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+             margin: 0px; 
+             line-height: 150%;  
+             width:825px; 
+            
+border-width: thin;  
+             border: thin  solid #191970;
+            
+ margin-left: 2%;
+             margin-top: 1em;
+              font-size    : 8pt;
+
+
+}
+
+.AltBodyWindowDcCivil {
+             background-color :#E1E1E1;
+             font-family : Verdana, Geneva, Arial, Helvetica, sans-serif; 
+             margin-left: 1%;
+             margin-right: 1%;
+   
+             width:805px; 
+             border-width: thin;  
+             border: thin  solid #191970;
+             
+             font-size    : 8pt;
+
+}
+
+
+HR {
+    width: 95%;
+}
+
+.FirstColumnPrompt {
+                    color: red  ;   
+                    font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+                    line-height : 110%;  /*line-height set to 110% in order to*/
+                    text-align: right; 
+                    width: 130px;   
+                 font-size: 8pt;
+
+                    
+ }   
+
+ Table.TableNoSpacingNoPadding,  Table.TableNoSpacingNoPadding td{
+	padding: 0px; 
+	border-spacing: 0px; 
+	vertical-align: top; 
+	border-collapse: collapse;
+ }
+ 
+ 
+ /*  Style to set font and underline for table heading row  */
+.tableHeader {
+		/* border: 1px solid #000; */
+        border-bottom: 1px solid #000;
+        color: black;      
+        font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+        line-height : 110%;  /*line-height set to 110% in order to*/
+        width: auto;
+        font-size    : 8pt;
+        font-weight  : bold;
+        padding-right:10px;
+ }   
+.bold {
+	font-weight: bold;
+}  
