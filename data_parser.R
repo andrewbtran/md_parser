@@ -297,56 +297,42 @@ write.csv(full_array, "full_array.csv")
 full_df <- read_csv("full_array.csv")
 # summarizer
 
-for (i in 1:nrow(full_df)) {
+cases <- unique(full_df$case_num)
+
+
+
+for (x in 1:length(cases)) {
+ 
+  sub_df <- filter(full_df, case_num==cases[x])
+  case_num <- cases[x]
+  if (exists("description")) {
+    rm(description)
+  }
   
-  for (x in 1:nrow(new_array)) {
-    if (new_array$Type[x]=="Case Description:") {
-      description<- new_array$Details[x]
-    } else if (new_array$Type[x]=="Title:") {
-      case_type<- new_array$Details[x]
-    } else if (new_array$Type[x]=="Plaintiff:") {
-      plain <- new_array$Details[x]
-    } else if (new_array$Type[x]=="Defendant:") {
-      def <- new_array$Details[x]
-      description <- paste(plain, "vs.", def)
-      #} else if (new_array$Type[x]=="Case Type:") {
-      #case_type<- new_array$Details[x]
-    } else if (new_array$Type[x]=="Filing Date:") {
-      filing_date<- new_array$Details[x]
-    } else if (new_array$Type[x]=="Case Status:") {
-      case_status<- new_array$Details[x]
-      #} else if (new_array$Type[x]=="Party Type:" & grepl("Hamilton", new_array$Details[x+2])) {
-      #  party_type<- new_array$Details[x]
-      #  party_name <- new_array$Details[x+2]
-      #} else if (new_array$Type[x]=="Party Type:" & grepl("Princeton", new_array$Details[x+2])) {
-      #  party_type<- new_array$Details[x]
-      #  party_name <- new_array$Details[x+2]
-      #} else if (new_array$Type[x]=="Result:") {
-      #  result <- gsub("CaseDisp: ", "", new_array$Details[x])
+  for (i in 1:nrow(sub_df)) {
+    if (!is.na(sub_df$Type[i])) {
+      if (sub_df$Type[i]=="Case Description:") {
+        description <- sub_df$Details[i]
+      } else if (sub_df$Type[i]=="Plaintiff:") {
+        plaintiff <- sub_df$Details[i]
+      } else if(sub_df$Type[i]=="Defendant:") {
+        defendant <- sub_df$Details[i]
+        description <- paste(plaintiff, "vs.", defendant)
+      }
     }
   }
-    
-  if ("CaseType:" %in% new_array$Type) {
-    type <- filter(new_array, grepl("CaseType:", Type))
-    type <- type$Details
-  } else if ("Claim Type:" %in% new_array$Type) {
-    type <- filter(new_array, grepl("Claim Type:", Type))
-    type <- type$Details
-  } else if ("Case Type:" %in% new_array$Type) {
-    type <- filter(new_array, grepl("Case Type:", Type))
-    type <- type$Details
+  if (!exists("description")) {
+    description <- ""
   }
-  #sum_array <- data.frame(case_num, description, case_type, filing_date, case_status, party_type, party_name, result, type)
-  sum_array <- data.frame(case_num, description, filing_date, case_status, type)
   
-  if (i==1) {
-    full_array <- new_array
-    summary_array <- sum_array
+  summ <- data.frame(case_num, description)
+  
+  if (x==1) {
+    summary <- summ
   } else {
-    full_array <- rbind(full_array, new_array)
-    summary_array <- rbind(summary_array, sum_array)
+    summary <- rbind(summary, summ)
   }
-
+  
 }
 
 write.csv(summary_array, "summary.csv")
